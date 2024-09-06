@@ -39,12 +39,7 @@ public class Demo3_拉灯游戏 {
     }
 
     private static int dfs(boolean[][] board, int row, int col, int count) {
-        if (count > 6) {
-            return -1;
-        }
-        if(check(board)){
-            return count;
-        }
+        
 
 
 
