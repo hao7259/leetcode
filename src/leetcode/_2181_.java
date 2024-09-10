@@ -1,22 +1,21 @@
 package leetcode;
 
-import java.util.ArrayList;
-
 public class _2181_ {
-    @SuppressWarnings("all")
     public ListNode mergeNodes(ListNode head) {
-        ListNode list = new ListNode();
-        int cur=0;
-        while (head.next != null) {
-            if (head.val==0) {
-                list.next.val(cur);
-                cur=0;
+        head = head.next;
+        ListNode res = head;
+        int cur = 0;
+        while (head != null && head.next != null) {
+            ListNode backup = head;
+            if (head.next.val == 0) {
+                head.val = cur;
+                cur = 0;
+                head.next = head.next.next;
+            } else {
+                cur += head.next.val;
+                head = head.next;
             }
-            cur+=head.val;
-
         }
-        return list;
-
+        return res;
     }
-
 }

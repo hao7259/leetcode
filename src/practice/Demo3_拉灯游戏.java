@@ -20,31 +20,48 @@ public class Demo3_拉灯游戏 {
         for (int i = 0; i < count; i++) {
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
-                    if (sc.nextInt() == 0) {
+                    int num = sc.nextInt();
+                    if (num == 0) {
                         board[i][k] = false;
-                    } else if (sc.nextInt() == 1) {
+                    } else if (num == 1) {
                         board[j][k] = true;
-                    } else {
-                        System.out.println("参数错误");
-                        return;
                     }
                 }
             }
             arr[i] = dfs(board, 0, 0, 0);
         }
         for (int i : arr) {
-            System.out.print(i + " ");
+            if (i == Integer.MAX_VALUE) {
+                System.out.print(-1 + " ");
+            } else {
+                System.out.print(i + " ");
+            }
         }
 
     }
 
     private static int dfs(boolean[][] board, int row, int col, int count) {
-        
+        if (row == 5) {
+            if (check(board)) {
+                return count;
+            } else {
+                return Integer.MAX_VALUE;
+            }
+        }
+        if (col == 5) {
+            return dfs(board, row + 1, 0, count);
+        }
+        //选择此格子
+        oper(board, row, col);
+        int dfs = dfs(board, row, col + 1, count + 1);
+        //复原；复原与选择的操作实际上相同
+        oper(board, row, col);
 
-
-
-
+        //不选择此格子
+        int dfs2 = dfs(board, row, col + 1, count);
+        return Math.min(dfs, dfs2);
     }
+
     private static boolean check(boolean[][] board) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -56,6 +73,23 @@ public class Demo3_拉灯游戏 {
         return true;
     }
 
+    private static void oper(boolean[][] board, int row, int col) {
+        board[row][col] = !board[row][col];
+        if (row > 0) {
+            board[row - 1][col] = !board[row - 1][col];
+        }
+        if (row < 4) {
+            board[row + 1][col] = !board[row + 1][col];
+        }
+        if (col > 0) {
+            board[row][col - 1] = !board[row][col - 1];
+        }
+        if (col < 4) {
+            board[row][col + 1] = !board[row][col + 1];
+        }
+    }
+
+    @Deprecated
     private static void operate(boolean[][] board, int row, int col) {
         if (row == 0 && col == 0) {
             //左上角
@@ -109,6 +143,8 @@ public class Demo3_拉灯游戏 {
             board[row][col + 1] = !board[row][col + 1];
             board[row][col + 1] = !board[row][col + 1];
         }
-
     }
+
 }
+
+
