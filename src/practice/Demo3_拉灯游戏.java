@@ -3,14 +3,14 @@ package practice;
 import java.util.Scanner;
 
 public class Demo3_拉灯游戏 {
-    /*
-    * 你玩过“拉灯”游戏吗？
-25 盏灯排成一个 5×5 的方形。
-每一个灯都有一个开关，游戏者可以改变它的状态。
-每一步，游戏者可以改变某一个灯的状态。
-游戏者改变一个灯的状态会产生连锁反应：和这个灯上下左右相邻的灯也要相应地改变其状态。
-我们用数字 1 表示一盏开着的灯，用数字 0 表示关着的灯。
-    * */
+    /**
+     * 你玩过“拉灯”游戏吗？
+     * 25 盏灯排成一个 5×5 的方形。
+     * 每一个灯都有一个开关，游戏者可以改变它的状态。
+     * 每一步，游戏者可以改变某一个灯的状态。
+     * 游戏者改变一个灯的状态会产生连锁反应：和这个灯上下左右相邻的灯也要相应地改变其状态。
+     * 我们用数字 1 表示一盏开着的灯，用数字 0 表示关着的灯。
+     */
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -41,6 +41,10 @@ public class Demo3_拉灯游戏 {
     }
 
     private static int dfs(boolean[][] board, int row, int col, int count) {
+        //递归界：row=5。row=5说明整个数组已经遍历完毕
+        //如果符合要求，返回count，不符合返回int的最大整数
+        //返回int最大整数而不是-1的原因：
+        //若返回-1，假如dfs与dfs2一个值为-1，另一个值为2，在此方法最后的Math.min方法中取到的总是-1，实际上我们需要的是2。这就需要额外的判断，而返回int最大整数只需要在外层替换即可
         if (row == 5) {
             if (check(board)) {
                 return count;
@@ -48,6 +52,7 @@ public class Demo3_拉灯游戏 {
                 return Integer.MAX_VALUE;
             }
         }
+        //在到某一行最后一个元素时切换到下一行
         if (col == 5) {
             return dfs(board, row + 1, 0, count);
         }
@@ -62,6 +67,11 @@ public class Demo3_拉灯游戏 {
         return Math.min(dfs, dfs2);
     }
 
+    /**
+     * 检查灯是否全部点亮
+     * 是->返回true
+     * 不是是->返回false
+     */
     private static boolean check(boolean[][] board) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -89,6 +99,11 @@ public class Demo3_拉灯游戏 {
         }
     }
 
+    /**
+     * 翻转某一个灯及其相邻的灯操作
+     * 将其分为9块，对各种情况讨论
+     * 思考之后觉得这种方法比较繁琐，换成了上面那种方法
+     */
     @Deprecated
     private static void operate(boolean[][] board, int row, int col) {
         if (row == 0 && col == 0) {
