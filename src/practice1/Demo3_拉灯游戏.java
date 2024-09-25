@@ -1,4 +1,4 @@
-package practice;
+package practice1;
 
 import java.util.Scanner;
 
@@ -40,11 +40,15 @@ public class Demo3_拉灯游戏 {
 
     }
 
+    /**
+     * 递归+回溯
+     * 递归界：row=5,此时说明整个数组已经遍历完毕
+     * 如果符合要求，返回count，不符合返回int的最大整数
+     * 返回int最大整数而不是-1的原因：
+     * 若返回-1，假如dfs与dfs2一个值为-1，另一个值为2，在此方法最后的Math.min方法中取到的总是-1，实际上我们需要的是2。这就需要额外的判断，而返回int最大整数只需要在外层替换即可
+     */
     private static int dfs(boolean[][] board, int row, int col, int count) {
-        //递归界：row=5。row=5说明整个数组已经遍历完毕
-        //如果符合要求，返回count，不符合返回int的最大整数
-        //返回int最大整数而不是-1的原因：
-        //若返回-1，假如dfs与dfs2一个值为-1，另一个值为2，在此方法最后的Math.min方法中取到的总是-1，实际上我们需要的是2。这就需要额外的判断，而返回int最大整数只需要在外层替换即可
+        if(count==6) return Integer.MAX_VALUE;
         if (row == 5) {
             if (check(board)) {
                 return count;
