@@ -1,4 +1,4 @@
-package practice2;
+package acwing;
 
 import java.util.ArrayList;
 import java.util.Scanner;

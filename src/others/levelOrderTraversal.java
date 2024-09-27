@@ -1,7 +1,6 @@
-package levelOrderTraversal;
+package others;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.TreeMap;
 
 public class levelOrderTraversal {
     public void Traversal(Node root){

@@ -1,4 +1,4 @@
-package practice2;
+package acwing;
 
 import java.util.Scanner;
 
@@ -20,8 +20,6 @@ public class _1221_四平方数 {
                 }if (flag) break;
             }if (flag) break;
         }
-
-
     }
 
 

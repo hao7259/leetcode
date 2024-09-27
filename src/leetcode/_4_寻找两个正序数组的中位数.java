@@ -5,6 +5,8 @@ public class _4_寻找两个正序数组的中位数 {
         int[] arr = new int[nums1.length + nums2.length];
         int p1 = 0, p2 = 0;
         for (int i = 0; i < nums1.length + nums2.length; i++) {
+            if (p1==nums1.length) {
+            }
             if (nums1[p1] <= nums2[p2]) {
                 arr[i] = nums1[p1++];
             } else {

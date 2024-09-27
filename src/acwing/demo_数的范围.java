@@ -1,4 +1,4 @@
-package practice2;
+package acwing;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class demo_数的范围 {
             //[l,mid][mid+1,r]
             while (l < r) {
                 int mid = l + r >> 1;
-                if (arr[mid] >= x) r = mid;
+                if (arr[mid] >= n) r = mid;
                 else l = mid + 1;
             }
             if (arr[l] != x) {
