@@ -2,7 +2,7 @@ package acwing;
 
 import java.util.Scanner;
 
-public class demo_数的范围 {
+public class _789_数的范围_f {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

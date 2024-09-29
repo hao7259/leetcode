@@ -2,7 +2,7 @@ package acwing;
 
 import java.util.Scanner;
 
-public class demo_分巧克力 {
+public class _1227_分巧克力_f {
     static int[][] arr;
     static int n;
     static int k;

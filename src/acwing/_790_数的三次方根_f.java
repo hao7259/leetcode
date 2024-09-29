@@ -2,7 +2,7 @@ package acwing;
 
 import java.util.Scanner;
 
-public class demo_数的三次方根 {
+public class _790_数的三次方根_f {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double a = sc.nextDouble();

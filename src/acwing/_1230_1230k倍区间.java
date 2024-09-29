@@ -2,7 +2,17 @@ package acwing;
 
 import java.util.Scanner;
 
-public class deno_1230k倍区间 {
+public class _1230_1230k倍区间 {
+    //todo
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+
+        }
+
+    }
     //前缀和优化
     public static void fun2(String[] args) {
         Scanner sc = new Scanner(System.in);

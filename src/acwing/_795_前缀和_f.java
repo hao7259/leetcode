@@ -3,7 +3,7 @@ package acwing;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class demo_前缀和 {
+public class _795_前缀和_f {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
