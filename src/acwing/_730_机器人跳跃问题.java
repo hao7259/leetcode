@@ -2,7 +2,7 @@ package acwing;
 
 import java.util.Scanner;
 
-public class _730_机器人跳跃问题_f {
+public class _730_机器人跳跃问题 {
     static int[] arr;
     static int n;
 

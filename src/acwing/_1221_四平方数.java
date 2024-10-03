@@ -14,7 +14,7 @@ class pair {
     }
 }
 
-public class _1221_四平方数_f {
+public class _1221_四平方数 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); //
